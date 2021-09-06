@@ -1,0 +1,20 @@
+---
+# tasks file for msc_time_deploy
+- name: project dir
+  file:
+    path: "{{ remote_install_path }}"
+    state: directory
+- name: docker-compose file
+  template:
+    src: docker-compose.yml
+    dest: "{{ remote_install_path }}/{{ docker_compose_name }}"
+    mode: 600
+    owner: root
+    group: root
+- name: docker-compose run
+  docker_compose:
+    project_src: "{{ remote_install_path }}"
+    files:
+      - "{{ docker_compose_name }}"
+    state: present
+    pull: true

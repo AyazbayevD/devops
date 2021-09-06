@@ -1,0 +1,6 @@
+- name: app to aws
+  hosts: amazon_aws
+  become: yes
+
+  roles:
+    - roles/msc_time_deploy

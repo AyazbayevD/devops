@@ -1,0 +1,6 @@
+---
+# vars file for msc_time_deploy
+remote_install_path: /opt/app_python
+docker_image_name: ayazbayevd/devops
+docker_image_version: latest
+docker_compose_name: docker-compose.yml
