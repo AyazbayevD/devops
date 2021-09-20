@@ -8,4 +8,4 @@
 ## Best practices
 1. The amount of logs for docker-compose should be limited
 2. Not to use the default network
-3. Use static labels 
+3. Use static labels
