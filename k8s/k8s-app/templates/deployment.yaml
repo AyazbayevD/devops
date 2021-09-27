@@ -27,8 +27,16 @@ spec:
       serviceAccountName: {{ include "k8s-app.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+        - name: config-volume
+          configMap:
+            name: config.json
       containers:
         - name: {{ .Chart.Name }}
+          volumeMounts:
+            - name: config-volume
+              mountPath: /config.json
+              subPath: config.json
           env:
             - name: MY_PASSWORD
                 valueFrom:
